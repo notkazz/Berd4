@@ -17,6 +17,10 @@ public class Veiculos {
         this.categoria = categoria;
 
     }
+
+    public String gitTest(){
+        return "Teste bem succedido";
+    }
     
     public String getPlaca() {
         placa = csvRecord.get(0);
