@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.LinkedList;
 
 /*
 Exemplo simples de uso da API Apache Commons CVS
@@ -17,12 +18,22 @@ Para executar: java -cp .;.\commons-csv-1.7.jar App.java
 */
 public class App {
     private static final String SAMPLE_CSV_FILE_PATH = "veiculos.dat";
-
+    
     public static void main(String[] args) throws IOException {
-        try (
-            Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_CSV_FILE_PATH));
-            CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT);
-        ) {
+        PersistenciaVeiculos persist = new PersistenciaVeiculos();
+        LinkedList<Veiculos> list = persist.carregaVeiculos();
+        for(Veiculos veic : list){
+            System.out.println("---------------");
+            System.out.println("Placa : " + veic.getPlaca());
+            System.out.println("Marca : " + veic.getMarca());
+            System.out.println("Cor : " + veic.getCor());
+            System.out.println("Categoria : " + veic.getCategoria());
+            System.out.println("---------------\n\n");
+        }  
+    }
+
+    public static void starter() throws IOException {
+        try (Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_CSV_FILE_PATH)); CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT);) { 
             for (CSVRecord csvRecord : csvParser) {
                 // Accessing Values by Column Index
                 String placa = csvRecord.get(0);
