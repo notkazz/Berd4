@@ -20,16 +20,10 @@ public class App {
     private static final String SAMPLE_CSV_FILE_PATH = "veiculos.dat";
     
     public static void main(String[] args) throws IOException {
-        PersistenciaVeiculos persist = new PersistenciaVeiculos();
-        LinkedList<Veiculos> list = persist.carregaVeiculos();
-        for(Veiculos veic : list){
-            System.out.println("---------------");
-            System.out.println("Placa : " + veic.getPlaca());
-            System.out.println("Marca : " + veic.getMarca());
-            System.out.println("Cor : " + veic.getCor());
-            System.out.println("Categoria : " + veic.getCategoria());
-            System.out.println("---------------\n\n");
-        }  
+        PersistenciaVeiculos persistVeic = new PersistenciaVeiculos();
+        PersistenciaVeiculos persistMotor = new PersistenciaMotoristas();
+        LinkedList<Veiculos> list = persistVeic.carregaVeiculos();
+        LinkedList<Motoristas> motora = persistenciaMotora.carregaMotoristas();
     }
 
     public static void starter() throws IOException {
