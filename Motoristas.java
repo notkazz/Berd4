@@ -11,7 +11,7 @@ public class Motoristas {
 
     public Motoristas(String CPF, String Nome, Veiculos veic, forma pgmt){
         this.CPF = CPF;
-        this.veic = veiculos;
+        this.veic = veic;
         //this.formPgmt = Formpgmt;
         this.Nome = Nome;
     }
