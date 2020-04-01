@@ -18,9 +18,18 @@ public class PersistenciaPassageiros {
                 String CPF = csvRecord.get(0);
                 String Nome = csvRecord.get(1);
                 String cartao = csvRecord.get(2);
-                FormaPGTO FormaPgto = FormaPGTO.valueOf(csvRecord.get(3));
-
-                listPassageiros.add(new Passageiros(CPF, Nome, cartao, FormaPgto));
+                FormaPGTO FormaPgto;
+                switch(csvRecord.get(3)){
+                    case "TODAS": 
+                        FormaPgto = FormaPGTO.TODAS;
+                        break;
+                    case "CARTAO":
+                        FormaPgto = FormaPGTO.CARTAO;
+                        break;
+                    default: 
+                        FormaPgto = FormaPGTO.DINHEIRO;
+                        break;             
+                } listPassageiros.add(new Passageiros(CPF, Nome, cartao, FormaPgto));
             }
             return listPassageiros;
         }
