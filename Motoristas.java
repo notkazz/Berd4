@@ -1,4 +1,3 @@
-/*
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -6,16 +5,16 @@ import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-*/
 
 public class Motoristas {
     private String CPF,Nome,veic;
-    private FormaPGTO formaPgto;
+    private FormaPGTO FormaPGTO;
 
-    public Motoristas(String CPF, String Nome, String veic, FormaPGTO formaPgto){
+
+    public Motoristas(String CPF, String Nome, String veic, FormaPGTO FormaPGTO){
         this.CPF = CPF;
         this.veic = veic;
-        this.formaPgto = formaPgto;
+        this.FormaPGTO = FormaPGTO;
         this.Nome = Nome;
     }
     
@@ -27,8 +26,8 @@ public class Motoristas {
         return veic;
     }
     
-    public FormaPGTO getFormPgmt() {
-        return formaPgto;
+    public FormaPGTO getF() {
+        return FormaPGTO;
     }
 
     public String getNome() {
