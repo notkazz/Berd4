@@ -21,9 +21,9 @@ public class App {
     
     public static void main(String[] args) throws IOException {
         PersistenciaVeiculos persistVeic = new PersistenciaVeiculos();
-        PersistenciaVeiculos persistMotor = new PersistenciaMotoristas();
+        PersistenciaMotoristas persistMotor = new PersistenciaMotoristas();
         LinkedList<Veiculos> list = persistVeic.carregaVeiculos();
-        LinkedList<Motoristas> motora = persistenciaMotora.carregaMotoristas();
+        LinkedList<Motoristas> motora = persistMotor.carregaMotoristas();
     }
 
     public static void starter() throws IOException {
