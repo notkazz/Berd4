@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 import java.util.LinkedList;
 
 public class PersistenciaMotoristas {
-    private static final String SAMPLE_CSV_FILE_PATH = "veiculos.dat";
+    private static final String SAMPLE_CSV_FILE_PATH = "motoristas.dat";
 
     public LinkedList<Motoristas> carregaMotoristas() throws IOException {
         try (Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_CSV_FILE_PATH)); CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT);) { 
@@ -18,8 +18,18 @@ public class PersistenciaMotoristas {
                 String CPF = csvRecord.get(0);
                 String Nome = csvRecord.get(1);
                 String veic = csvRecord.get(2);
-                FormaPGTO FormaPgto = FormaPGTO.valueOf(csvRecord.get(3));
-
+                FormaPGTO FormaPgto;
+                switch(csvRecord.get(3)){
+                    case "TODAS": 
+                        FormaPgto = FormaPGTO.TODAS;
+                        break;
+                    case "CARTAO":
+                        FormaPgto = FormaPGTO.CARTAO;
+                        break;
+                    default: 
+                        FormaPgto = FormaPGTO.DINHEIRO;
+                        break;             
+                }
                 listMotorista.add(new Motoristas(CPF, Nome, veic, FormaPgto));
             }
             return listMotorista;
