@@ -24,8 +24,19 @@ public class App {
         PersistenciaMotoristas persistMotor = new PersistenciaMotoristas();
         LinkedList<Veiculos> list = persistVeic.carregaVeiculos();
         LinkedList<Motoristas> motora = persistMotor.carregaMotoristas();
-
-        for (int i= 0; i<motora.size(); i++){
+        list.add(new Veiculos("Sergio", "Thales", "Luvico", "GADO"));
+        for (int i= 0; i<list.size(); i++){
+            Veiculos vei = list.get(i);
+            System.out.println("---Veiculos---");
+            System.out.println("Placa : " + vei.getPlaca());
+            System.out.println("Marca : " + vei.getMarca());
+            System.out.println("Cor : " + vei.getCor());
+            System.out.println("Categoria : " + vei.getCategoria());
+            System.out.println("---------------\n\n");
+        
+        }
+        persistVeic.persisteVeiculos(list);
+        /*for (int i= 0; i<motora.size(); i++){
             Motoristas mot = motora.get(i);
             System.out.println("---Motorista---");
             System.out.println("CPF : " + mot.getCPF());
@@ -33,7 +44,7 @@ public class App {
             System.out.println("PlacaVeiculo : " + mot.getVeic());
             System.out.println("FormaPGTO : " + mot.getFormPgmt());
             System.out.println("---------------\n\n");
-        }
+        */
     }
 
     public static void starter() throws IOException {
