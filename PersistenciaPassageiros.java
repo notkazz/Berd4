@@ -29,6 +29,7 @@ public class PersistenciaPassageiros {
     public void persisteMotoristas(LinkedList<Motoristas> list) throws IOException {
         try (Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_CSV_FILE_PATH)); CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT);){
             
+            
         }
     } 
 }
