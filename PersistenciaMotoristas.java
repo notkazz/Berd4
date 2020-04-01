@@ -17,10 +17,10 @@ public class PersistenciaMotoristas {
                 // Accessing Values by Column Index
                 String CPF = csvRecord.get(0);
                 String Nome = csvRecord.get(1);
-                //get Veiculo;
-                //get forma pagamento[];
+                String veic = csvRecord.get(2);
+                FormaPGTO FormaPgto = FormaPGTO.valueOf(csvRecord.get(3));
 
-                listMotorista.add(new Motoristas(CPF, Nome, veic, FormPgtoa));
+                listMotorista.add(new Motoristas(CPF, Nome, veic, FormaPgto));
             }
             return listMotorista;
         }
