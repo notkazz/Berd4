@@ -42,7 +42,7 @@ public class PersistenciaMotoristas {
         try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(SAMPLE_CSV_FILE_PATH)); CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT.withHeader("cpf", "nome", "veiculo", "formaPGTO"));){
             LinkedList<Motoristas> listOriginal= carregaMotoristas(); 
             if(list.size()>listOriginal.size()){
-                for(int i= 0; i<=list.size(); i++){
+                for(int i= 1; i<list.size(); i++){
                     Motoristas helper= list.get(i);
                     csvPrinter.printRecord(helper.getCPF(), helper.getNome(), helper.getVeic(), helper.getF());
                 }

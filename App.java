@@ -18,13 +18,22 @@ Para executar: java -cp .;.\commons-csv-1.7.jar App.java
 */
 public class App {
     private static final String SAMPLE_CSV_FILE_PATH = "veiculos.dat";
-    
     public static void main(String[] args) throws IOException {
         PersistenciaVeiculos persistVeic = new PersistenciaVeiculos();
         PersistenciaMotoristas persistMotor = new PersistenciaMotoristas();
+        PersistenciaPassageiros persistPass = new PersistenciaPassageiros();
         LinkedList<Veiculos> list = persistVeic.carregaVeiculos();
         LinkedList<Motoristas> motora = persistMotor.carregaMotoristas();
-        list.add(new Veiculos("Sergio", "Thales", "Luvico", "GADO"));
+        LinkedList<Passageiros> passa = persistPass.carregaPassageiros();
+        list.add(new Veiculos("ABC123", "TawisMobile", "LapisLazuli", "LUX"));
+        list.add(new Veiculos("BCA321", "Hiram'sSpaceBender", "Sadness", "TELEPORTATION"));
+        motora.add(new Motoristas("Keppo", "Veppo", "Neppo", FormaPGTO.TODAS));
+        motora.add(new Motoristas("Ceppo", "Queppo", "Peppo", FormaPGTO.DINHEIRO));
+        passa.add(new Passageiros("809123345", "OGRANDESERGIO", "8912", FormaPGTO.TODAS));
+        passa.add(new Passageiros("321353345", "LUVICOJorge", "4272", FormaPGTO.CARTAO));
+        persistVeic.persisteVeiculos(list);
+        persistMotor.persisteMotoristas(motora);
+        persistPass.persistePassageiros(passa);
         for (int i= 0; i<list.size(); i++){
             Veiculos vei = list.get(i);
             System.out.println("---Veiculos---");
@@ -35,16 +44,23 @@ public class App {
             System.out.println("---------------\n\n");
         
         }
-        persistVeic.persisteVeiculos(list);
-        /*for (int i= 0; i<motora.size(); i++){
+        for (int i= 0; i<motora.size(); i++){
             Motoristas mot = motora.get(i);
             System.out.println("---Motorista---");
             System.out.println("CPF : " + mot.getCPF());
             System.out.println("Nome : " + mot.getNome());
             System.out.println("PlacaVeiculo : " + mot.getVeic());
-            System.out.println("FormaPGTO : " + mot.getFormPgmt());
+            System.out.println("FormaPGTO : " + mot.getF());
             System.out.println("---------------\n\n");
-        */
+        }
+        for(Passageiros pas: passa){
+            System.out.println("---Passageiros---");
+            System.out.println("CPF : " + pas.getCPF());
+            System.out.println("Nome : " + pas.getNome());
+            System.out.println("Cartao : " + pas.getCartao());
+            System.out.println("FormaPGTO : " + pas.getFormaPGTO());
+            System.out.println("---------------\n\n");
+        }
     }
 
     public static void starter() throws IOException {
