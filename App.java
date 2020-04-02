@@ -30,7 +30,7 @@ public class App {
         motora.add(new Motoristas("Keppo", "Veppo", "Neppo", FormaPGTO.TODAS));
         motora.add(new Motoristas("Ceppo", "Queppo", "Peppo", FormaPGTO.DINHEIRO));
         passa.add(new Passageiros("809123345", "OGRANDESERGIO", "8912", FormaPGTO.TODAS));
-        passa.add(new Passageiros("321353345", "LUVICOJorge", "4272", FormaPGTO.CARTAO));
+        passa.add(new Passageiros("321353345", "SALIBAJorge", "4272", FormaPGTO.CARTAO));
         persistVeic.persisteVeiculos(list);
         persistMotor.persisteMotoristas(motora);
         persistPass.persistePassageiros(passa);
